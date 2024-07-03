@@ -9,9 +9,11 @@ export function isURL(value: unknown): value is string {
   return typeof value === "string" && urlFormat.test(value);
 }
 
-export function rebuildDocument<T extends Record<string, any> | any[]>(document: T): T | undefined {
+export function rebuildDocument<T extends Record<string, any> | any>(document: T): T | undefined {
   if (document) {
-    if (document instanceof Array) {
+    if (typeof document === "string") {
+      return document;
+    } else if (document instanceof Array) {
       const newArray = [];
       for (const item of document) {
         newArray.push(rebuildDocument(item));

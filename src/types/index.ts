@@ -7,3 +7,5 @@ export type CursorList<T extends Record<string, any>> = {
   }
   results: T[]
 }
+
+export type NodeApprovalMode = "AUTOMATIC" | "MANUAL" | "REJECT"

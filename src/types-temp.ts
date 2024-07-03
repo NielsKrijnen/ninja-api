@@ -1,4 +1,4 @@
-import { ChassisType } from "./types/devices";
+import { DeviceRole } from "./types/system";
 
 export type Organization = {
   name: string
@@ -50,38 +50,25 @@ export type Job = {
 
 export type Device = {
   id: number
-  parentDeviceId: number
+  parentDeviceId?: number
   organizationId: number
   locationId: number
   nodeClass: NodeClass
   nodeRoleId: number
   rolePolicyId: number
-  policyId: number
+  policyId?: number
   approvalStatus: "PENDING" | "APPROVED"
   offline: boolean
   displayName: string
   systemName: string
   dnsName: string
-  netbiosName: string
+  netbiosName?: string
   created: number
   lastContact: number
   lastUpdate: number
-  userData: Record<string, string>
+  userData?: Record<string, string>
   tags?: string[]
   fields?: Record<string, string>
-  maintenance: {
-    status: "PENDING" | "IN_MAINTENANCE" | "FAILED"
-    start: number
-    end: number
-  }
-  references: {
-    organization: Organization
-    location: Location
-    rolePolicy: Policy
-    policy: Policy
-    role: DeviceRole
-    backupUsage: DeviceBackupUsage
-  }
 }
 
 export type JobStatus = "START_REQUESTED" | "STARTED" | "IN_PROCESS" | "COMPLETED" | "CANCEL_REQUESTED" | "CANCELLED" |
@@ -119,18 +106,6 @@ export type SourceType = "AGENT_OFFLINE" | "CONDITION_AGENT_CPU" | "CONDITION_AG
   "CONDITION_SOFTWARE" | "CONDITION_WINDOWS_PROCESS_STATE" | "CONDITION_WINDOWS_PROCESS_RESOURCE_CPU" |
   "CONDITION_WINDOWS_PROCESS_RESOURCE_MEMORY" | "CONDITION_MAC_PROCESS_STATE" | "CONDITION_MAC_PROCESS_RESOURCE_CPU" |
   "CONDITION_MAC_PROCESS_RESOURCE_MEMORY" | "CONDITION_MAC_DAEMON" | "CONDITION_CUSTOM_FIELD" | "CONDITION_PENDING_REBOOT"
-
-export type DeviceRole = {
-  id: number
-  name: string
-  description: string
-  nodeClass: NodeClass
-  custom: boolean
-  chassisType: ChassisType
-  created: number
-  tags: string[]
-  fields: Record<string, string>
-}
 
 export type Location = {
   name: string

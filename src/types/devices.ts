@@ -22,8 +22,8 @@ export type DeviceDetails = {
   lastUpdate: number
   tags?: string[]
   fields?: Record<string, any>
-  ipAddresses: Record<string, string>[]
-  macAddresses: Record<string, string>[]
+  ipAddresses: string[]
+  macAddresses: string[]
   publicIP: string
   os: {
     manufacturer: string
@@ -141,9 +141,9 @@ export type NetworkInterface = {
   dnsServers: string
   interfaceIndex: string
   interfaceName: string
-  ipAddress: Record<string, string>[]
+  ipAddress: string[]
   linkSpeed: string
-  macAddress: Record<string, string>[]
+  macAddress: string[]
   mtu: string
   status: string
   subnetMask: string

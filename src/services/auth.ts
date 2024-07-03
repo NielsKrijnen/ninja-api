@@ -19,16 +19,10 @@ export function createAuthClient(clientId: string, clientSecret: string, BASE_UR
       }).then(response => response.json());
 
       if (response.error) {
-        return {
-          error: response.error as string,
-          data: null
-        }
+        throw response as { error: string };
       } else {
         accessToken = response.access_token;
-        return {
-          error: null,
-          data: response as { access_token: string, expires_in: number, scope: string, token_type: string }
-        }
+        return response as { access_token: string, expires_in: number, scope: string, token_type: string  };
       }
     }
   } as const;
