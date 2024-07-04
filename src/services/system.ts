@@ -2,10 +2,14 @@ import { ActivityList, Alert, Device, Job, JobType, Organization, Policy, Source
 import {
   AutomationScript,
   DeviceCustomField,
-  DeviceRole, DevicesSearch,
+  DeviceRole,
+  DevicesSearch,
   Group,
   NotificationChannel,
-  OrganizationDetailed, SoftwareProduct, Task, User
+  OrganizationDetailed,
+  SoftwareProduct,
+  Task,
+  User
 } from "../types/system";
 import { DeviceDetails } from "../types/devices";
 

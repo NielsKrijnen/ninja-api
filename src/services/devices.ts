@@ -9,6 +9,7 @@ import {
 } from "../types/devices";
 import { ActivityList, Alert } from "../types-temp";
 import type { BODY, GET } from "../index";
+import { CustomFields } from "../types/system";
 
 export function createDevices(GET: GET, BODY: BODY) {
   return {
@@ -90,7 +91,7 @@ export function createDevices(GET: GET, BODY: BODY) {
       return GET<Volume<T>[]>(`/v2/device/${deviceId}/volumes`, includeBitlocker ? { include: 'bl' } : {});
     },
     listCustomFields(deviceId: number, params?: { withInheritance?: boolean }) {
-      return GET<Record<string, any>>(`/v2/device/${deviceId}/custom-fields`, params);
+      return GET<CustomFields>(`/v2/device/${deviceId}/custom-fields`, params);
     },
     updateFieldValues(deviceId: number, values: Record<string, any>) {
       return BODY<{}>(`/v2/device/${deviceId}/custom-fields`, values, "PATCH");

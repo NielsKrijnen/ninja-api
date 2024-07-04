@@ -31,7 +31,7 @@ export type DeviceCustomField = {
   entityType: DeviceCustomFieldEntityType
   scope: DeviceCustomFieldScope
   definitionScope: DeviceCustomFieldDefinitionScope
-  type: DeviceCustomFieldType
+  type: CustomFieldType
   label: string
   description: string
   name: string
@@ -89,7 +89,7 @@ export type DeviceCustomField = {
 export type DeviceCustomFieldEntityType = "USER" | "NODE" | "TICKET" | "DOCUMENT"
 export type DeviceCustomFieldScope = "NODE_GLOBAL" | "NODE_ROLE" | "NODE_CLASS"
 export type DeviceCustomFieldDefinitionScope = "NODE" | "LOCATION" | "ORGANIZATION"
-export type DeviceCustomFieldType = "DROPDOWN" | "MULTI_SELECT" | "CHECKBOX" | "TEXT" | "TEXT_MULTILINE" | "TEXT_ENCRYPTED" |
+export type CustomFieldType = "DROPDOWN" | "MULTI_SELECT" | "CHECKBOX" | "TEXT" | "TEXT_MULTILINE" | "TEXT_ENCRYPTED" |
   "NUMERIC" | "DECIMAL" | "DATE" | "DATE_TIME" | "TIME" | "ATTACHMENT" | "NODE_DROPDOWN" | "NODE_MULTI_SELECT" |
   "CLIENT_DROPDOWN" | "CLIENT_MULTI_SELECT" | "CLIENT_LOCATION_DROPDOWN" | "CLIENT_LOCATION_MULTI_SELECT" |
   "CLIENT_DOCUMENT_DROPDOWN" | "CLIENT_DOCUMENT_MULTI_SELECT" | "EMAIL" | "PHONE" | "IP_ADDRESS" | "WYSIWYG" | "URL"
@@ -133,7 +133,6 @@ export type Location = {
   tags?: string[]
   fields?: Record<string, string>
   id: number
-  organizationId: number
 }
 
 export type DeviceRole = {
@@ -223,3 +222,8 @@ export type DevicesSearch = {
     matchAttrValue: string
   })[]
 }
+
+export type CustomFields = Record<string, {
+  text: string
+  html: string
+}>

@@ -14,10 +14,11 @@ import { createRelatedItemsClient } from "./services/relatedItems";
 import { createKnowledgeBaseArticlesClient } from "./services/knowledgeBaseArticles";
 import { createDocumentTemplatesClient } from "./services/documentTemplates";
 import { createOrganizationDocumentsClient } from "./services/organizationDocuments";
+import { createCustomFieldsClient } from "./services/customFields";
 
 export type GET = <T>(path: string, params?: Record<string, any>) => Promise<T>;
 export type BODY = <T>(path: string, body: Record<string, any>, method?: "POST" | "PUT" | "PATCH") => Promise<T>;
-export type DELETE = (path: string, body: Record<string, any>) => Promise<{}>;
+export type DELETE = (path: string) => Promise<{}>;
 
 export function createNinjaClient(prefix: "app" | "eu" | "oc", accessToken?: string) {
   const BASE_URL = `https://${prefix}.ninjarmm.com`;
@@ -63,7 +64,7 @@ export function createNinjaClient(prefix: "app" | "eu" | "oc", accessToken?: str
     }
   }
 
-  async function DELETE(path: string, body: Record<string, any>) {
+  async function DELETE(path: string) {
     const response = await fetch(BASE_URL + path, {
       method: "DELETE",
       headers
@@ -91,6 +92,7 @@ export function createNinjaClient(prefix: "app" | "eu" | "oc", accessToken?: str
     backup: createBackupClient(GET, BODY),
     knowledgeBaseArticles: createKnowledgeBaseArticlesClient(GET, BODY),
     organizationDocuments: createOrganizationDocumentsClient(GET, BODY, DELETE),
-    documentTemplates: createDocumentTemplatesClient(GET, BODY, DELETE)
+    documentTemplates: createDocumentTemplatesClient(GET, BODY, DELETE),
+    customFields: createCustomFieldsClient(GET)
   } as const;
 }
