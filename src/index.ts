@@ -18,7 +18,7 @@ import { createCustomFieldsClient } from "./services/customFields";
 
 export type GET = <T>(path: string, params?: Record<string, any>) => Promise<T>;
 export type BODY = <T>(path: string, body: Record<string, any>, method?: "POST" | "PUT" | "PATCH") => Promise<T>;
-export type DELETE = (path: string) => Promise<{}>;
+export type DELETE = <T extends any = {}>(path: string) => Promise<T>;
 
 export function createNinjaClient(prefix: "app" | "eu" | "oc", accessToken?: string) {
   const BASE_URL = `https://${prefix}.ninjarmm.com`;
@@ -64,7 +64,7 @@ export function createNinjaClient(prefix: "app" | "eu" | "oc", accessToken?: str
     }
   }
 
-  async function DELETE(path: string) {
+  async function DELETE<T extends any = {}>(path: string) {
     const response = await fetch(BASE_URL + path, {
       method: "DELETE",
       headers
@@ -72,7 +72,7 @@ export function createNinjaClient(prefix: "app" | "eu" | "oc", accessToken?: str
 
     const json = await response.json();
 
-    return rebuildDocument(json) as {};
+    return rebuildDocument(json) as T;
   }
 
   return {

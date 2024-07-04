@@ -1,5 +1,3 @@
-import { DeviceRole } from "./types/system";
-
 export type Organization = {
   name: string
   description: string

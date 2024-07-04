@@ -125,14 +125,14 @@ export type Group = {
   fields?: Record<string, string>
 }
 
-export type Location = {
+export type Location<ID extends boolean = true> = {
   name: string
   address?: string
   description?: string
   userData?: Record<string, string>
   tags?: string[]
   fields?: Record<string, string>
-  id: number
+  id: ID extends true ? number : undefined
 }
 
 export type DeviceRole = {
@@ -147,7 +147,7 @@ export type DeviceRole = {
   fields?: Record<string, string>
 }
 
-export type OrganizationDetailed = {
+export type OrganizationDetailed<LocationID extends boolean = true> = {
   name: string
   description: string
   userData?: Record<string, any>
@@ -155,7 +155,7 @@ export type OrganizationDetailed = {
   tags?: string[]
   fields?: Record<string, any>
   id: number
-  locations: Omit<Location, "organizationId">[]
+  locations: Location<LocationID>[]
   policies: {
     nodeRoleId: number
     policyId: number
