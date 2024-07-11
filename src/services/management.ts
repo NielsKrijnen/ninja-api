@@ -5,8 +5,8 @@ import {
   ScriptingOptions,
   WindowsEventCondition
 } from "../types/management";
-import { OrganizationDetailed } from "../types/system";
-import { Device, Location, NodeClass, Organization, Policy } from "../types-temp";
+import { OrganizationDetailed, Location } from "../types/system";
+import { Device, NodeClass, Organization, Policy } from "../types-temp";
 import { WindowsService } from "../types/devices";
 
 export function createManagementClient(GET: GET, BODY: BODY, DELETE: DELETE) {

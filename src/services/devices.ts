@@ -65,7 +65,7 @@ export function createDevices(GET: GET, BODY: BODY) {
       status?: string
       type?: string
     }) {
-      return GET<OSPatch>(`/v2/device/${deviceId}/os-patches`, params);
+      return GET<OSPatch[]>(`/v2/device/${deviceId}/os-patches`, params);
     },
     listSoftwarePatches(deviceId: number, params?: {
       impact?: string

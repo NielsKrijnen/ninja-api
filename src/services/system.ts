@@ -9,7 +9,8 @@ import {
   OrganizationDetailed,
   SoftwareProduct,
   Task,
-  User
+  User,
+  Location
 } from "../types/system";
 import { DeviceDetails } from "../types/devices";
 
@@ -82,7 +83,7 @@ export function createSystemClient(GET: <T>(path: string, params?: Record<string
       return GET<SoftwareProduct[]>("/v2/software-products");
     },
     listUsers<T extends boolean>(params?: { includeRoles?: T, userType?: User<T>["userType"] }) {
-      return GET<User<T>>("/v2/users", params);
+      return GET<User<T>[]>("/v2/users", params);
     },
     findDevices(query: string, limit?: number) {
       return GET<DevicesSearch>("/v2/devices/search", { q: query, limit });
