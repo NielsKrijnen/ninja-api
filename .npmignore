@@ -5,3 +5,4 @@
 /coverage/
 tsup.config.ts
 src
+.idea
