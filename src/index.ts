@@ -62,7 +62,7 @@ export type DELETE = <T extends any = {}>(path: string) => Promise<T>;
 
 export type NinjaClient = {
   auth(clientId: string, clientSecret: string): {
-    getAuthorizationURL: (redirectUri: string, scope?: string, state?: string) => string;
+    getAuthorizationURL: (redirectUri: string, refreshToken: boolean, scope?: string, state?: string) => string;
     getTokenFromAuthorization: (code: string, redirectUri: string) => Promise<{ access_token: string; expires_in: number; scope: string; token_type: string; }>
   },
   system: {
