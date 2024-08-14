@@ -63,7 +63,10 @@ export type DELETE = <T extends any = {}>(path: string) => Promise<T>;
 export type NinjaClient = {
   auth(clientId: string, clientSecret: string): {
     getAuthorizationURL: (redirectUri: string, refreshToken: boolean, scope?: string, state?: string) => string;
-    getTokenFromAuthorization: (code: string, redirectUri: string) => Promise<{ access_token: string; expires_in: number; scope: string; token_type: string; }>
+    getTokenFromAuthorization: <Refresh extends boolean = true>(code: string, redirectUri: string) =>
+      Promise<{ access_token: string; expires_in: number; scope: string; token_type: string; refresh_token: Refresh extends true ? string : undefined }>
+    getTokenFromRefresh: (refreshToken: string) =>
+      Promise<{ access_token: string; expires_in: number; scope: string; token_type: string; refresh_token: string }>
   },
   system: {
     listOrganizations: (params?: { after?: number, of?: string, pageSize?: number }) => Promise<Organization[]>
