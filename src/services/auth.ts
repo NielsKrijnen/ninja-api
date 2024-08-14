@@ -1,7 +1,7 @@
 export function createAuthClient(clientId: string, clientSecret: string, BASE_URL: string, accessToken?: string) {
   return {
     getAuthorizationURL(redirectUri: string, refreshToken: boolean = true, scope?: string, state?: string) {
-      return `${BASE_URL}/ws/oauth/authorize?response_type=code&client_id=${clientId}&client_secret=${clientSecret}&redirect_uri=${redirectUri}&scope=${scope ? scope : 'monitoring management control'}${state ? `&state=${state} ${refreshToken ? "offline_access" : ''}` : '' }`;
+      return `${BASE_URL}/ws/oauth/authorize?response_type=code&client_id=${clientId}&client_secret=${clientSecret}&redirect_uri=${redirectUri}&scope=${scope ? scope : `monitoring management control${refreshToken ? " offline_access" : ''}`}${state ? `&state=${state} ` : '' }`;
     },
     async getTokenFromAuthorization<Refresh extends boolean = true>(code: string, redirectUri: string) {
       const response = await fetch(BASE_URL + "/ws/oauth/token", {
