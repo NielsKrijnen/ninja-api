@@ -23,14 +23,34 @@ npm install ninja-api
 You can then use the API by importing the package, creating a client and calling a function:
 
 ```js
-import { createNinjaClient } from "ninja-api";
+import { NinjaClient } from "ninja-api";
 
-const { devices } = createNinjaClient("eu", "<ACCESS-TOKEN>");
+const { devices } = new NinjaClient("eu", "<ACCESS-TOKEN>");
 
 devices.get(1).then(device => {
   console.log(device)
 })
 ```
+
+### Types
+
+You can use types defined in the API by importing different interfaces:
+
+```ts
+import { Devices } from "ninja-api";
+
+const devices: Devices.DeviceDetails[] = [];
+```
+
+Currently, these interfaces are available for types:
+- Backup
+- Devices
+- DocumentTemplates
+- Main
+- Management
+- System
+- Ticketing
+- Temp
 
 ### Documentation
 
@@ -38,7 +58,7 @@ You can find further documentation about authentication and API routes on the [o
 
 ## Requirements
 
-This package has no requirements and can be run on any NodeJS server or JavaScript client.
+This package has no requirements and can be run on any Node.js server or JavaScript client.
 
 ## License
 
