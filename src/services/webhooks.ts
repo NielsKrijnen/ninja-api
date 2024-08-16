@@ -1,7 +1,5 @@
-import { BODY, DELETE } from "../index";
+import { NinjaBase } from "./index";
 
-export function createWebhooksClient(BODY: BODY, DELETE: DELETE) {
-  return {
+export class NinjaWebhooks extends NinjaBase {
 
-  } as const;
 }

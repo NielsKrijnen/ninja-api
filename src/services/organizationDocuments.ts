@@ -1,7 +1,5 @@
-import { BODY, DELETE, GET } from "../index";
+import { NinjaBase } from "./index";
 
-export function createOrganizationDocumentsClient(GET: GET, BODY: BODY, DELETE: DELETE) {
-  return {
+export class NinjaOrganizationDocuments extends NinjaBase {
 
-  } as const;
 }

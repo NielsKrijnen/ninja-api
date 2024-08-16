@@ -1,7 +1,5 @@
-import { BODY, DELETE, GET } from "../index";
+import { NinjaBase } from "./index";
 
-export function createRelatedItemsClient(GET: GET, BODY: BODY, DELETE: DELETE) {
-  return {
+export class NinjaRelatedItems extends NinjaBase {
 
-  } as const;
 }

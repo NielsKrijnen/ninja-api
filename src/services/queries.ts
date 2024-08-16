@@ -1,7 +1,5 @@
-import { GET } from "../index";
+import { NinjaBase } from "./index";
 
-export function createQueriesClient(GET: GET) {
-  return {
+export class NinjaQueries extends NinjaBase {
 
-  } as const;
 }

@@ -1,6 +1,6 @@
-import { Device, NodeClass } from "../types-temp";
-import { ChassisType } from "./devices";
-import { NodeApprovalMode } from "./index";
+import { Device, NodeClass } from "../../../types-temp";
+import { ChassisType } from "../../../types/devices";
+import { NodeApprovalMode } from "../../../types";
 
 export type AutomationScript = {
   id: number

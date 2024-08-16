@@ -1,7 +1,5 @@
-import { BODY, GET } from "../index";
+import { NinjaBase } from "./index";
 
-export function createKnowledgeBaseArticlesClient(GET: GET, BODY: BODY) {
-  return {
+export class NinjaKnowledgeBaseArticles extends NinjaBase {
 
-  } as const;
 }
