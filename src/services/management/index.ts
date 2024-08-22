@@ -6,7 +6,7 @@ import {
   WindowsEventCondition
 } from "./types";
 import { Location, OrganizationDetailed } from "../system/types";
-import { Device, NodeClass, Organization, Policy } from "../../../types-temp";
+import { Device, NodeClass, Organization, Policy } from "../../types-temp";
 import { WindowsService } from "../devices/types";
 
 export class NinjaManagement extends NinjaBase {

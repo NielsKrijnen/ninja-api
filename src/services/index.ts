@@ -1,5 +1,5 @@
 import { NinjaClientConfig } from "../client";
-import { rebuildDocument } from "../../utils";
+import { rebuildDocument } from "../utils";
 
 export class NinjaBase {
   readonly BASE_URL: string;

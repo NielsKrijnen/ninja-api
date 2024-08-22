@@ -1,4 +1,4 @@
-import { Result } from "../../../types-temp";
+import { Result } from "../../types-temp";
 
 export type BackupParams = {
   cursor?: string

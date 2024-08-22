@@ -1,6 +1,6 @@
 import { NinjaBase } from "../index";
-import { BackupJob, BackupJobCreated, BackupParams } from "../../../types/backup";
-import { CursorList } from "../../../types";
+import { BackupJob, BackupJobCreated, BackupParams } from "./types";
+import { CursorList } from "../types";
 
 export class NinjaBackup extends NinjaBase {
   listIntegrityCheckJobs(params?: BackupParams) {

@@ -1,4 +1,4 @@
-import { Priority, Severity } from "../../../types-temp";
+import { Priority, Severity } from "../../types-temp";
 
 export type Ticket = {
   id: number

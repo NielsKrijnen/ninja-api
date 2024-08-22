@@ -7,7 +7,7 @@ import {
   OSPatch, Processor, ServiceState, Software,
   SoftwarePatch, Volume, WindowsService
 } from "./types";
-import { ActivityList, Alert } from "../../../types-temp";
+import { ActivityList, Alert } from "../../types-temp";
 import { CustomFields } from "../system/types";
 
 export class NinjaDevices extends NinjaBase {
