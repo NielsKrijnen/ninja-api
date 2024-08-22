@@ -34,23 +34,13 @@ devices.get(1).then(device => {
 
 ### Types
 
-You can use types defined in the API by importing different interfaces:
+You can use types defined in the API by importing them:
 
 ```ts
-import { Devices } from "ninja-api";
+import type { DeviceDetails } from "ninja-api";
 
-const devices: Devices.DeviceDetails[] = [];
+const devices: DeviceDetails[] = [];
 ```
-
-Currently, these interfaces are available for types:
-- Backup
-- Devices
-- DocumentTemplates
-- Main
-- Management
-- System
-- Ticketing
-- Temp
 
 ### Documentation
 
