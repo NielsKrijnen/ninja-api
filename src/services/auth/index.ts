@@ -34,4 +34,26 @@ export class NinjaAuth extends NinjaBase {
       return response as AccessTokenResponse;
     }
   }
+
+  async getTokenFromRefreshToken(refresh_token: string) {
+    const response = await fetch(this.BASE_URL + "/ws/oauth/token", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      body: new URLSearchParams({
+        grant_type: "refresh_token",
+        client_id: this.config.clientId,
+        client_secret: this.config.clientSecret,
+        refresh_token
+      })
+    }).then(response => response.json());
+  
+    if (response.error) {
+      throw response as { error: string };
+    } else {
+      this.config.sessionToken = response.access_token;
+      return response as AccessTokenResponse;
+    }
+  }
 }
