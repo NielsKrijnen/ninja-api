@@ -53,7 +53,7 @@ export class NinjaAuth extends NinjaBase {
       throw response as { error: string };
     } else {
       this.config.sessionToken = response.access_token;
-      return response as AccessTokenResponse;
+      return response as AccessTokenResponse<true>;
     }
   }
 }
