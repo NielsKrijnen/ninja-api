@@ -12,7 +12,7 @@ export class NinjaAuth extends NinjaBase {
       `${state ? `&state=${state} ` : '' }`
   }
 
-  async getTokenFromCode(code: string, redirectUri: string) {
+  async getTokenFromCode<Refresh extends boolean = false>(code: string, redirectUri: string) {
     const response = await fetch(this.BASE_URL + "/ws/oauth/token", {
       method: "POST",
       headers: {
@@ -31,7 +31,7 @@ export class NinjaAuth extends NinjaBase {
       throw response as { error: string };
     } else {
       this.config.sessionToken = response.access_token;
-      return response as AccessTokenResponse;
+      return response as AccessTokenResponse<Refresh>;
     }
   }
 
