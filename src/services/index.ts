@@ -2,10 +2,10 @@ import { NinjaClientConfig } from "../client";
 import { rebuildDocument } from "../utils";
 
 export class NinjaBase {
-  readonly BASE_URL: string;
+  protected readonly BASE_URL: string;
   private readonly headers: HeadersInit;
 
-  constructor(readonly config: NinjaClientConfig) {
+  constructor(protected readonly config: NinjaClientConfig) {
     this.BASE_URL = `https://${config.prefix}.ninjarmm.com`;
     this.headers = {
       "Content-Type": "application/json",
