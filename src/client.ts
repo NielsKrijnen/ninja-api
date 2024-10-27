@@ -49,6 +49,7 @@ export class NinjaClient {
   get ticketing() {
     return new NinjaTicketing(this.config);
   }
+  /** Webhook Endpoints **/
   get webhooks() {
     return new NinjaWebhooks(this.config);
   }

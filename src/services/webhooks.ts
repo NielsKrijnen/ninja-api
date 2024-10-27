@@ -1,7 +1,6 @@
 import { NinjaBase } from "./index";
 import { Webhook } from "./types";
 
-/** Webhook Endpoints **/
 export class NinjaWebhooks extends NinjaBase {
   /** Update API Webhook configuration **/
   update(webhook: Webhook) {
