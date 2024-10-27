@@ -40,6 +40,7 @@ export class NinjaClient {
   get groups() {
     return new NinjaGroups(this.config);
   }
+  /** Queries **/
   get queries() {
     return new NinjaQueries(this.config);
   }
