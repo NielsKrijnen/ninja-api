@@ -25,7 +25,12 @@ You can then use the API by importing the package, creating a client and calling
 ```js
 import { NinjaClient } from "ninja-api";
 
-const { devices } = new NinjaClient("eu", "<ACCESS-TOKEN>");
+const { devices } = new NinjaClient({
+  prefix: "eu",
+  clientId: "[YOUR_CLIENT_ID]",
+  clientSecret: "[YOUR_CLIENT_SECRET]",
+  sessionToken: "[YOUR_SESSION_TOKEN]"
+});
 
 devices.get(1).then(device => {
   console.log(device)
