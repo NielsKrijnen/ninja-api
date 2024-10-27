@@ -53,6 +53,7 @@ export class NinjaClient {
   get webhooks() {
     return new NinjaWebhooks(this.config);
   }
+  /** Related Items **/
   get relatedItems() {
     return new NinjaRelatedItems(this.config);
   }

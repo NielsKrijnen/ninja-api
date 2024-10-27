@@ -1,0 +1,12 @@
+export type EntityType =
+  "ORGANIZATION"
+  | "DOCUMENT"
+  | "LOCATION"
+  | "NODE"
+  | "ATTACHMENT"
+  | "TECHNICIAN"
+  | "CREDENTIAL"
+  | "CHECKLIST"
+  | "END_USER"
+  | "CONTACT"
+  | "KB_DOCUMENT"

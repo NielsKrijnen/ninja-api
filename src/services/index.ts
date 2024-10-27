@@ -49,7 +49,7 @@ export class NinjaBase {
     }
   }
 
-  protected async DELETE<T extends any = {}>(path: string) {
+  protected async DELETE<T extends any = void>(path: string) {
     const response = await fetch(this.BASE_URL + path, {
       method: "DELETE",
       headers: this.headers
