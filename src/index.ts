@@ -7,3 +7,4 @@ export * from "./services/documentTemplates/types";
 export * from "./services/management/types";
 export * from "./services/system/types";
 export * from "./services/ticketing/types";
+export * from "./services/types"
