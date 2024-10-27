@@ -34,7 +34,9 @@ export class NinjaBase {
     }
   }
 
-  protected async BODY<T extends any>(path: string, body: Record<string, any>, method?: "POST" | "PUT" | "PATCH") {
+  protected async BODY<T extends any>(path: string, body: Record<string, any>, method?: "POST" | "PUT" | "PATCH", multipart?: boolean) {
+    const headers = this.headers;
+    if (multipart) (headers as Record<string, string>)["Content-Type"] = "multipart/form-data";
     const response = await fetch(this.BASE_URL + path, {
       method: method ? method : "POST",
       headers: this.headers,
