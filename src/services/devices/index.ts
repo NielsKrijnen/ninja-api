@@ -7,8 +7,9 @@ import {
   OSPatch, Processor, ServiceState, Software,
   SoftwarePatch, Volume, WindowsService
 } from "./types";
-import { ActivityList, Alert } from "../../types-temp";
+import { Alert } from "../types";
 import { CustomFields } from "../system/types";
+import { ActivityList } from "../types";
 
 export class NinjaDevices extends NinjaBase {
   get(id: number) {
@@ -91,7 +92,7 @@ export class NinjaDevices extends NinjaBase {
   listCustomFields(deviceId: number, params?: { withInheritance?: boolean }) {
     return this.GET<CustomFields>(`/v2/device/${deviceId}/custom-fields`, params);
   }
-  updateFieldValues(deviceId: number, values: Record<string, any>) {
+  updateFieldValues(deviceId: number, values: CustomFields) {
     return this.BODY<{}>(`/v2/device/${deviceId}/custom-fields`, values, "PATCH");
   }
 }

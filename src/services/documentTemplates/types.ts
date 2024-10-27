@@ -1,5 +1,5 @@
 import { CustomFieldType, DateFilterType, IPAddressType, Permission, TechnicianPermission } from "../system/types";
-import { NodeClass } from "../../types-temp";
+import { NodeClass } from "../types";
 
 export type DocumentTemplate<Time extends boolean = true> = {
   id: number

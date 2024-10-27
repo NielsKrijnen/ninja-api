@@ -6,8 +6,9 @@ import {
   WindowsEventCondition
 } from "./types";
 import { Location, OrganizationDetailed } from "../system/types";
-import { Device, NodeClass, Organization, Policy } from "../../types-temp";
+import { Device, NodeClass, Policy } from "../types";
 import { WindowsService } from "../devices/types";
+import { Organization } from "../types";
 
 export class NinjaManagement extends NinjaBase {
   listWindowsEventConditions(policyId: number) {
@@ -89,7 +90,7 @@ export class NinjaManagement extends NinjaBase {
   }) {
     return this.BODY<{ url: URL }>("/v2/organization/generate-installer", data);
   }
-  updateOrganization(organizationId: number, data: Omit<Organization, "id">) {
+  updateOrganization(organizationId: number, data: Partial<Omit<Organization, "id">>) {
     return this.BODY<undefined>(`/v2/organization/${organizationId}`, data, "PATCH");
   }
   updateLocation(organizationId: number, locationId: number, data: Omit<Location, "id">) {

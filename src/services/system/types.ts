@@ -1,4 +1,4 @@
-import { Device, NodeClass } from "../../types-temp";
+import { Device, NodeClass } from "../types";
 import { ChassisType } from "../devices/types";
 import { NodeApprovalMode } from "../types";
 
@@ -223,7 +223,4 @@ export type DevicesSearch = {
   })[]
 }
 
-export type CustomFields = Record<string, {
-  text: string
-  html: string
-}>
+export type CustomFields = Record<string, any>

@@ -1,6 +1,6 @@
 import { NinjaBase } from "./index";
 import { Location, OrganizationDetailed, User } from "./system/types";
-import { Device, DeviceBackupUsage } from "../types-temp";
+import { Device, DeviceBackupUsage } from "./types";
 
 export class NinjaOrganization extends NinjaBase {
   listLocations(organizationId: number) {

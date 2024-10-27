@@ -1,4 +1,4 @@
-import { Priority, Severity } from "../../types-temp";
+import { Priority, Severity } from "../types";
 
 export type WindowsEventCondition = {
   id: string

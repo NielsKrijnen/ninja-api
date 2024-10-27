@@ -1,5 +1,5 @@
 import { NinjaBase } from "../index";
-import { ActivityList, Alert, Device, Job, JobType, Organization, Policy, SourceType } from "../../types-temp";
+import { Alert, Device, Job, JobType, Policy, SourceType } from "../types";
 import {
   AutomationScript,
   DeviceCustomField,
@@ -9,6 +9,7 @@ import {
   OrganizationDetailed, SoftwareProduct, Task, User
 } from "./types";
 import { DeviceDetails } from "../devices/types";
+import { ActivityList, Organization } from "../types";
 
 export class NinjaSystem extends NinjaBase {
   listOrganizations(params?: { after?: number, of?: string, pageSize?: number }) {

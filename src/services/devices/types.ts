@@ -1,4 +1,4 @@
-import { NodeClass } from "../../types-temp";
+import { NodeClass } from "../types";
 
 export type ChassisType = "UNKNOWN" | "DESKTOP" | "LAPTOP" | "MOBILE"
 
