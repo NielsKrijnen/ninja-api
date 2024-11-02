@@ -1,5 +1,6 @@
 export * from "./client";
 
+export * from "./services/types"
 export * from "./services/auth/types";
 export * from "./services/backup/types";
 export * from "./services/devices/types";

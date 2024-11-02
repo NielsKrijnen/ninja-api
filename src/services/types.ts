@@ -141,16 +141,6 @@ export type SourceType = "AGENT_OFFLINE" | "CONDITION_AGENT_CPU" | "CONDITION_AG
   "CONDITION_WINDOWS_PROCESS_RESOURCE_MEMORY" | "CONDITION_MAC_PROCESS_STATE" | "CONDITION_MAC_PROCESS_RESOURCE_CPU" |
   "CONDITION_MAC_PROCESS_RESOURCE_MEMORY" | "CONDITION_MAC_DAEMON" | "CONDITION_CUSTOM_FIELD" | "CONDITION_PENDING_REBOOT"
 
-export type Location = {
-  name: string
-  address: string
-  description: string
-  userData: Record<string, string>
-  tags: string[]
-  fields: Record<string, string>
-  id: number
-}
-
 export type DeviceBackupUsage = {
   revisionsCurrentSize: number
   revisionsPreviousSize: number
