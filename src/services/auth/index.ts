@@ -57,6 +57,10 @@ export class NinjaAuth extends NinjaBase {
     }
   }
 
+  setSessionToken(token: string) {
+    this.config.sessionToken = token;
+  }
+
   get isLoggedIn() {
     return !!this.config.sessionToken;
   }
