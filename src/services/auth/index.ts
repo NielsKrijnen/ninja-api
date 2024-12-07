@@ -56,4 +56,8 @@ export class NinjaAuth extends NinjaBase {
       return response as AccessTokenResponse<true>;
     }
   }
+
+  get isLoggedIn() {
+    return !!this.config.sessionToken;
+  }
 }
