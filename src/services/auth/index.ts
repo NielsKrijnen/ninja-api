@@ -57,6 +57,28 @@ export class NinjaAuth extends NinjaBase {
     }
   }
 
+  async getTokenFromClientCredentials(scope?: string) {
+    const response = await this.fetch(this.BASE_URL + "/ws/oauth/token", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      body: new URLSearchParams({
+        grant_type: "client_credentials",
+        client_id: this.config.clientId,
+        client_secret: this.config.clientSecret,
+        scope: scope ?? "monitoring management control",
+      })
+    }).then(response => response.json());
+
+    if (response.error) {
+      throw response as { error: string };
+    } else {
+      this.config.sessionToken = response.access_token;
+      return response as AccessTokenResponse<true>;
+    }
+  }
+
   setSessionToken(token: string) {
     this.config.sessionToken = token;
   }
