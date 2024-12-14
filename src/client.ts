@@ -15,11 +15,14 @@ import { NinjaOrganizationDocuments } from "./services/organizationDocuments";
 import { NinjaDocumentTemplates } from "./services/documentTemplates";
 import { NinjaCustomFields } from "./services/customFields";
 
+export type Fetch = (input: string | URL | Request, init?: RequestInit) => Promise<Response>
+
 export type NinjaClientConfig = {
   prefix: "eu" | "app" | "oc"
   clientId: string
   clientSecret: string
   sessionToken?: string
+  fetch?: Fetch
 }
 
 export class NinjaClient {

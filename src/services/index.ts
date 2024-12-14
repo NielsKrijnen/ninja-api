@@ -1,8 +1,9 @@
-import { NinjaClientConfig } from "../client";
+import { Fetch, NinjaClientConfig } from "../client";
 import { rebuildDocument } from "../utils";
 
 export class NinjaBase {
   protected readonly BASE_URL: string;
+  protected readonly fetch: Fetch
   private readonly headers: HeadersInit;
 
   constructor(protected readonly config: NinjaClientConfig) {
@@ -11,6 +12,7 @@ export class NinjaBase {
       "Content-Type": "application/json",
       Accept: "*/*"
     }
+    this.fetch = config.fetch ? config.fetch : fetch
     if (config.sessionToken) this.headers["Authorization"] = `Bearer ${config.sessionToken}`;
   }
 
@@ -23,7 +25,7 @@ export class NinjaBase {
       }
     }
 
-    const response = await fetch(url, { headers: this.headers });
+    const response = await this.fetch(url, { headers: this.headers });
 
     const json = await response.json();
 
@@ -35,7 +37,7 @@ export class NinjaBase {
   }
 
   protected async BODY<T extends any>(path: string, body: Record<string, any>, method?: "POST" | "PUT" | "PATCH") {
-    const response = await fetch(this.BASE_URL + path, {
+    const response = await this.fetch(this.BASE_URL + path, {
       method: method ? method : "POST",
       headers: this.headers,
       body: JSON.stringify(body),
@@ -50,7 +52,7 @@ export class NinjaBase {
   }
 
   protected async DELETE<T extends any = {}>(path: string) {
-    const response = await fetch(this.BASE_URL + path, {
+    const response = await this.fetch(this.BASE_URL + path, {
       method: "DELETE",
       headers: this.headers
     })

@@ -13,7 +13,7 @@ export class NinjaAuth extends NinjaBase {
   }
 
   async getTokenFromCode<Refresh extends boolean = false>(code: string, redirectUri: string) {
-    const response = await fetch(this.BASE_URL + "/ws/oauth/token", {
+    const response = await this.fetch(this.BASE_URL + "/ws/oauth/token", {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded"
@@ -36,7 +36,7 @@ export class NinjaAuth extends NinjaBase {
   }
 
   async getTokenFromRefreshToken(refresh_token: string) {
-    const response = await fetch(this.BASE_URL + "/ws/oauth/token", {
+    const response = await this.fetch(this.BASE_URL + "/ws/oauth/token", {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded"
